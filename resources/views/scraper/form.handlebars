@@ -1,0 +1,22 @@
+<div class="card text-center">
+
+    <div class="card-header">
+        Insira os dados abaixo para realizar a extração
+    </div>
+
+    <div class="card-body">
+        
+        <form action="/scraper" method="post">
+            <label> Nº de Operador</label>
+            <input type="text" name="account">
+            <label> Senha</label>
+            <input type="password" name="password">
+            <label> Data Inicial</label>
+            <input type="text" name="initialDate">
+            <label> Data Final</label>  
+            <input type="text" name="finalDate">
+            <button type="submit" class="btn btn-primary">Salvar Extrato</button>
+        </form>
+    </div>
+
+</div>

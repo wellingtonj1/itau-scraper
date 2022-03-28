@@ -1,0 +1,72 @@
+<div class="card text-center">
+    <div class="card-header">
+        Saldos das contas extraidas.
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Saldo</h5>
+
+        <p>Selecione uma conta para visualizar os saldos.</p>
+        
+        {{#if codes}}
+            <h5>Contas: {{codes}}</h5>
+            {{#each codes}}
+                <a href="/scraper-data?op={{this}}">{{this}}</a>
+            {{/each}}
+        {{/if}}
+
+        <table class="table table-light">
+            <thead>
+                <tr>
+                    <th>Agencia</th>
+                    <th>Nome</th>
+                    <th>Conta</th>
+                    <th>CNPJ</th>
+                    <th>Saldo</th>
+                    <th>Saldo Disponivel</th>
+                    <th>Hora Atualização</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {{#if data.length}}
+                    {{#each data}}
+                    <tr>
+                        <th>{{agencia}}</th>
+                        <td>{{nome}}</td>
+                        <td>{{conta}}</td>
+                        <td>{{cnpj}}</td>
+                        <td>{{saldo}}</td>
+                        <td>{{saldo_disponivel}}</td>
+                        <td>{{hora_atualizacao}}</td>
+                    </tr>
+                    {{/each}}
+
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Soma Saldo</th>
+                        <th>Soma Saldo Disponivel</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>R$ {{data.total_balance}}</td>
+                        <td>R$ {{data.balance_allowed}}</td>
+                        <td></td>
+                    </tr>
+                {{else}}
+                    <tr>
+                        <td colspan="7">Nenhum dado encontrado</td>
+                    </tr>
+                {{/if}}
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
